@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: product-mcp-server
+  ai:
+    mcp:
+      server:
+        name: product-mcp-server
+        version: 1.0.0
+        protocol: STATELESS        # Streamable HTTP, no server-side sessions
+        type: SYNC
+        streamable-http:
+          mcp-endpoint: /mcp
+
+server:
+  port: 8081
+
+product-service:
+  base-url: ${PRODUCT_SERVICE_URL:http://localhost:8080}
+
+app:
+  jwt:
+    # Must match product-service's secret so both can validate the same tokens.
+    secret: ${JWT_SECRET:change-me-dev-only-secret-key-at-least-32-bytes}

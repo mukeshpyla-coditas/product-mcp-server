@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: product-service
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/productdb}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:root}
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 8080
+
+app:
+  jwt:
+    # HS256 key, must be >= 32 bytes. Override with JWT_SECRET outside local dev; the MCP server must share it.
+    secret: ${JWT_SECRET:change-me-dev-only-secret-key-at-least-32-bytes}
+    expiry-minutes: ${JWT_EXPIRY_MINUTES:60}
+  seed:
+    user-password: ${SEED_USER_PASSWORD:user123}
+    admin-password: ${SEED_ADMIN_PASSWORD:admin123}

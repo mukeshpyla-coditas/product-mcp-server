@@ -1,0 +1,6 @@
+# Run with --spring.profiles.active=h2 when no PostgreSQL is available (data is lost on restart).
+spring:
+  datasource:
+    url: jdbc:h2:mem:productdb;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
